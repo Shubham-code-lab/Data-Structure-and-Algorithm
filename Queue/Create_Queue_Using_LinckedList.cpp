@@ -95,6 +95,6 @@ cout<<"1. to enqueue into Lincked List "<<"\n"<<"2. to dequeue from Lincked List
 	  cout<<"exited from while loop"<<endl;
   }
 }while(option != 6);
-
+	
 return 0;
 }
