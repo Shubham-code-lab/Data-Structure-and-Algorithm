@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+
+class Node
+{
+public:
+int data;
+Node* left;
+Node* right;
+};
+
+Node* createNode(int data)
+{
+	Node* temp1 = new Node();
+	temp1->data =data;
+	temp1->left = NULL;
+	temp1->right = NULL;
+return temp1;
+}
+
+Node* insert(Node* root , int data)
+{
+	if(root == NULL)
+	{
+		Node* newNode = createNode(data);
+		root = newNode;
+	    return root;
+	}
+	else if(data <= root->data)
+		root->left = insert(root->left , data );
+	else
+	    root->right = insert(root->right , data );
+	return root;
+}
+
+bool searchData(Node* root,int data)
+{
+   if(root->data == data)
+	   return true;
+   else if(data <= root->data)
+	   return searchData(root->left , data);
+   else
+	   return searchData(root->right , data);
+}
+
+int main()
+{
+Node* root = NULL;
+root = insert(root , 20);
+root = insert(root , 19);
+root = insert(root , 21);
+root = insert(root , 25);
+root = insert(root , 11);
+root = insert(root , 8);
+
+cout<<boolalpha;
+cout<<searchData(root , 25);
+return 0;
+}
+
